@@ -2,6 +2,7 @@
   margin: 0 auto;
   width: 653px;
   border: 1px black solid;
+  border-radius: 20px;
   background-color: white;
   display: flex;
   justify-content: space-between;
