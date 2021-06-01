@@ -1,6 +1,6 @@
 import React from 'react';
 import './app.css';
-const {REACT_APP_APP_ID} = process.env;
+const { REACT_APP_APP_ID } = process.env;
 
 export class App extends React.Component {
   state = {
@@ -17,7 +17,7 @@ export class App extends React.Component {
     if (!this.state.data || !this.state.data.main) {
       return <h2>LOADING...</h2>;
     }
-    // Давай это в отдельный компонент вынесем
+
     return (
       <div className='main'>
         <div className='temp'>
