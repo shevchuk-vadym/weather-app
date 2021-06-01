@@ -1,13 +1,13 @@
 import React from 'react';
 import './app.css';
-const appId = process.env;
+const {REACT_APP_APP_ID} = process.env;
 
 export class App extends React.Component {
   state = {
     data: undefined,
   };
   async componentDidMount() {
-    const requestUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${appId.REACT_APP_APP_ID}&q=London&units=metric`;
+    const requestUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${REACT_APP_APP_ID}&q=London&units=metric`;
     const response = await fetch(requestUrl);
     const data = await response.json();
     this.setState({ data });
@@ -17,6 +17,7 @@ export class App extends React.Component {
     if (!this.state.data || !this.state.data.main) {
       return <h2>LOADING...</h2>;
     }
+    // Давай это в отдельный компонент вынесем
     return (
       <div className='main'>
         <div className='temp'>
