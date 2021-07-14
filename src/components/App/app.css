@@ -40,6 +40,8 @@
   height: 200px;
   display: flex;
   align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 .wind {
   display: flex;
@@ -63,4 +65,9 @@
 p {
   margin: 5px;
   font-size: 13px;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
 }
