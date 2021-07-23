@@ -20,9 +20,9 @@ export class LocationForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        {this.props.location}
         <label>
           Город:
+          {this.props.location}
           <input
             type='text'
             name='location'

@@ -38,7 +38,7 @@ export const MainWeather = (props) => {
       {props.children}
       <div className='location'>
         <h2>Город:</h2>
-        <h2>{props.data.name}</h2>
+        <h2>{props.data.city}</h2>
       </div>
     </div>
   );

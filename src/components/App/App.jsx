@@ -51,8 +51,8 @@ export class App extends React.Component {
       <div>
         <MainWeather data={this.state.currentDayWeather}>
           <LocationForm location={this.state.location} onSubmit={this.search} />
-          <DailyWeather forecast={this.state.forecast} />
         </MainWeather>
+        <DailyWeather forecast={this.state.forecast} />
       </div>
     );
   }
