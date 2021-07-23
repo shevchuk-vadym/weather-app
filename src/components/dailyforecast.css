@@ -1,0 +1,7 @@
+.week_weather_temp {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 653px;
+  justify-content: space-around;
+}
