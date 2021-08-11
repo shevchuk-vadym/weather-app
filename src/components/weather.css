@@ -18,3 +18,9 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.weather__date {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}

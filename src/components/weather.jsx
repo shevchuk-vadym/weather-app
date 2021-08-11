@@ -4,6 +4,8 @@ import './weather.css';
 
 export const MainWeather = (props) => {
   console.log(typeof props.data.icon);
+  let newDate = new Date();
+
   return (
     <div className='main'>
       <div className='form-container'>{props.children}</div>
@@ -39,7 +41,9 @@ export const MainWeather = (props) => {
             <h2>city:&#160; </h2>
             <h2>{props.data.city}</h2>
           </div>
-          <div classname='weather__date'></div>
+          <div className='weather__date'>
+            {newDate.getHours()}:{newDate.getMinutes()}
+          </div>
           <div className='weather__description'>
             <h5>{props.data.description}</h5>
           </div>
