@@ -1,11 +1,17 @@
+:root {
+  --main-bg-color: #c3bebe;
+}
+
 .main {
   margin: 0 auto;
   width: 653px;
-  border: 1px black solid;
-  border-radius: 20px;
-  background-color: white;
-  display: flex;
+  background-color: var(--main-bg-color);
   justify-content: space-between;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-around;
 }
 
 .temp {
@@ -16,10 +22,12 @@
   width: 100%;
   height: 45%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
-.temp__main > p {
-  font-size: 30px;
+.temp__main > div {
+  font-size: 27px;
+  display: flex;
+  align-items: center;
 }
 .temp__feel {
   display: flex;
@@ -35,14 +43,7 @@
   display: flex;
   flex-direction: row;
 }
-.weather {
-  width: 230px;
-  height: 200px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
+
 .wind {
   display: flex;
   flex-direction: column;
@@ -59,8 +60,9 @@
 }
 
 .location {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 p {
   margin: 5px;
