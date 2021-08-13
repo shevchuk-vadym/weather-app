@@ -5,6 +5,11 @@ import './weather.css';
 export const MainWeather = (props) => {
   console.log(typeof props.data.icon);
   let newDate = new Date();
+  if ('geolocation' in navigator) {
+    console.log(navigator);
+  } else {
+    console.log('FUCK OFF');
+  }
 
   return (
     <div className='main'>
