@@ -16,10 +16,7 @@ export class App extends React.Component {
     const requestUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${REACT_APP_APP_ID}&q=${this.state.location}&units=metric`;
     const response = await fetch(requestUrl);
     const data = await response.json();
-    console.log(data);
-    console.log(new Weather(data));
     this.setState({ currentDayWeather: new Weather(data) });
-    console.log(this.state.location);
   };
 
   getForecast = async () => {
@@ -27,7 +24,6 @@ export class App extends React.Component {
     const response = await fetch(requestUrl);
     const data = await response.json();
     const dayliForecast = reduceForecast(data.list);
-    console.log(dayliForecast);
     this.setState({ forecast: dayliForecast });
   };
 
@@ -36,9 +32,9 @@ export class App extends React.Component {
     this.getForecast();
   }
   search = (text) => {
-    console.log(text);
     this.setState({ location: text }, () => {
       this.getCurrentWeather();
+      this.getForecast();
     });
   };
 
@@ -50,7 +46,11 @@ export class App extends React.Component {
     return (
       <div>
         <MainWeather data={this.state.currentDayWeather}>
-          <LocationForm location={this.state.location} onSubmit={this.search} />
+          <LocationForm
+            location={this.state.location}
+            data={this.state.currentDayWeather}
+            onSubmit={this.search}
+          />
         </MainWeather>
         <DailyWeather forecast={this.state.forecast} />
       </div>
