@@ -11,12 +11,37 @@ export class App extends React.Component {
     currentDayWeather: undefined,
     location: 'London',
     forecast: [],
+    geolocation: '',
   };
+  getCoords = async () => {
+    if ('geolocation' in navigator) {
+      function success(pos) {
+        var crd = pos.coords;
+        console.log(crd);
+      }
+      console.log(navigator.geolocation.getCurrentPosition(success));
+    } else {
+      console.log('FUCK OFF');
+      this.setState({
+        geolocation: this.crd,
+      });
+    }
+    console.log(this.state.geolocation);
+  };
+
+  getLocationWeather = async () => {
+    const requestUrl = `https://api.openweathermap.org/data/2.5/weather?appid=103d2bea1f0fea90b85f7ca4c51dcc4f&lat=47.977100799999995&lon=36.2312349&units=metric`;
+    const response = await fetch(requestUrl);
+    const data = await response.json();
+    this.setState({ currentDayWeather: new Weather(data) });
+  };
+
   getCurrentWeather = async () => {
     const requestUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${REACT_APP_APP_ID}&q=${this.state.location}&units=metric`;
     const response = await fetch(requestUrl);
     const data = await response.json();
     this.setState({ currentDayWeather: new Weather(data) });
+    console.log(this.props.coords);
   };
 
   getForecast = async () => {
@@ -28,6 +53,7 @@ export class App extends React.Component {
   };
 
   componentDidMount() {
+    this.getCoords();
     this.getCurrentWeather();
     this.getForecast();
   }
