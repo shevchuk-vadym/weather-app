@@ -29,7 +29,7 @@ export class App extends React.Component {
   };
 
   getLocationWeather = async () => {
-    const requestUrl = `https://api.openweathermap.org/data/2.5/weather?appid=103d2bea1f0fea90b85f7ca4c51dcc4f&lat=${this.state.geolocation.latitude}&lon=${this.state.geolocation.longtitude}&units=metric`;
+    const requestUrl = `https://api.openweathermap.org/data/2.5/weather?appid=103d2bea1f0fea90b85f7ca4c51dcc4f&lat=${this.state.geolocation.lat}&lon=${this.state.geolocation.lon}&units=metric`;
     const response = await fetch(requestUrl);
     const data = await response.json();
     this.setState({ currentDayWeather: new Weather(data) });
@@ -52,10 +52,10 @@ export class App extends React.Component {
   };
 
   async componentDidMount() {
-    // this.getLocationWeather();
     await this.getCoords();
     this.getCurrentWeather();
     this.getForecast();
+    this.getLocationWeather();
   }
   search = (text) => {
     this.setState({ location: text }, () => {
