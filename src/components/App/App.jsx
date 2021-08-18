@@ -21,6 +21,7 @@ export class App extends React.Component {
       }
       const t = await navigator.geolocation.getCurrentPosition(success);
       console.log('Тут будет гео локация', t)
+      // только надо еще вызвать setTSate
     } else {
       console.log('FUCK OFF');
       this.setState({
