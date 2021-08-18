@@ -16,8 +16,9 @@ export class App extends React.Component {
   getCoords = async () => {
     if ('geolocation' in navigator) {
       function success(pos) {
-        var crd = pos.coords;
-        console.log(crd);
+        const crd = pos.coords;
+        console.log('>>>>>>>ЗАБЫЛ ВЕРНУТЬ', crd)
+        return crd;
       }
 
       const t = await navigator.geolocation.getCurrentPosition(success);
