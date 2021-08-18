@@ -19,7 +19,6 @@ export class App extends React.Component {
         var crd = pos.coords;
         console.log(crd);
       }
-      navigator.geolocation.getCurrentPosition(success);
 
       const t = await navigator.geolocation.getCurrentPosition(success);
       console.log('Тут будет гео локация', t);
