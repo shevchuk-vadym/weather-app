@@ -15,17 +15,14 @@ export class App extends React.Component {
   };
   getCoords = async () => {
     if ('geolocation' in navigator) {
-      function success(pos) {
+      navigator.geolocation.getCurrentPosition((pos) => {
         const crd = pos.coords;
         console.log('>>>>>>>ЗАБЫЛ ВЕРНУТЬ', crd)
-        return crd;
-      }
-
-      const t = await navigator.geolocation.getCurrentPosition(success);
-      console.log('Тут будет гео локация', t);
-      this.setState({
-        geolocation: this.crd,
+        this.setState({
+          geolocation: {lon: crd.longitude, lat: crd.latitude},
+        });
       });
+    
     } else {
       console.log('FUCK OFF');
     }
