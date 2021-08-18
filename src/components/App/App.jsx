@@ -19,7 +19,7 @@ export class App extends React.Component {
         var crd = pos.coords;
         console.log(crd);
       }
-      console.log(navigator.geolocation.getCurrentPosition(success));
+      navigator.geolocation.getCurrentPosition(success);
     } else {
       console.log('FUCK OFF');
       this.setState({
