@@ -17,7 +17,7 @@ export class App extends React.Component {
     if ('geolocation' in navigator) {
       function success(pos) {
         const crd = pos.coords;
-        console.log('>>>>>>>ЗАБЫЛ ВЕРНУТЬ', crd)
+        console.log('>>>>>>>ЗАБЫЛ ВЕРНУТЬ', crd);
         return crd;
       }
 
