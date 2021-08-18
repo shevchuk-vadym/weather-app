@@ -15,16 +15,12 @@ export class App extends React.Component {
   };
   getCoords = async () => {
     if ('geolocation' in navigator) {
-      function success(pos) {
+      navigator.geolocation.getCurrentPosition((pos) => {
         const crd = pos.coords;
         console.log('>>>>>>>ЗАБЫЛ ВЕРНУТЬ', crd);
-        return crd;
-      }
-
-      const t = await navigator.geolocation.getCurrentPosition(success);
-      console.log('Тут будет гео локация', t);
-      this.setState({
-        geolocation: this.crd,
+        this.setState({
+          geolocation: { lon: crd.longitude, lat: crd.latitude },
+        });
       });
     } else {
       console.log('FUCK OFF');
@@ -33,7 +29,7 @@ export class App extends React.Component {
   };
 
   getLocationWeather = async () => {
-    const requestUrl = `https://api.openweathermap.org/data/2.5/weather?appid=103d2bea1f0fea90b85f7ca4c51dcc4f&lat=47.977100799999995&lon=36.2312349&units=metric`;
+    const requestUrl = `https://api.openweathermap.org/data/2.5/weather?appid=103d2bea1f0fea90b85f7ca4c51dcc4f&lat=${this.state.geolocation.latitude}&lon=${this.state.geolocation.longtitude}&units=metric`;
     const response = await fetch(requestUrl);
     const data = await response.json();
     this.setState({ currentDayWeather: new Weather(data) });
@@ -56,6 +52,7 @@ export class App extends React.Component {
   };
 
   async componentDidMount() {
+    // this.getLocationWeather();
     await this.getCoords();
     this.getCurrentWeather();
     this.getForecast();
@@ -68,7 +65,7 @@ export class App extends React.Component {
   };
 
   render() {
-    if (!this.state.currentDayWeather) {
+    if (!this.state.currentDayWeather || !this.state.geolocation) {
       return <h2>LOADING...</h2>;
     }
 
