@@ -19,7 +19,8 @@ export class App extends React.Component {
         var crd = pos.coords;
         console.log(crd);
       }
-      console.log(navigator.geolocation.getCurrentPosition(success));
+      const t = await navigator.geolocation.getCurrentPosition(success);
+      console.log('Тут будет гео локация't)
     } else {
       console.log('FUCK OFF');
       this.setState({
@@ -51,9 +52,9 @@ export class App extends React.Component {
     const dayliForecast = reduceForecast(data.list);
     this.setState({ forecast: dayliForecast });
   };
-
-  componentDidMount() {
-    this.getCoords();
+  
+  async componentDidMount() {
+    await this.getCoords();
     this.getCurrentWeather();
     this.getForecast();
   }
