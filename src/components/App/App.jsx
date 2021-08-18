@@ -20,7 +20,7 @@ export class App extends React.Component {
         console.log(crd);
       }
       const t = await navigator.geolocation.getCurrentPosition(success);
-      console.log('Тут будет гео локация't)
+      console.log('Тут будет гео локация', t)
     } else {
       console.log('FUCK OFF');
       this.setState({
