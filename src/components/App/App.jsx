@@ -17,10 +17,10 @@ export class App extends React.Component {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((pos) => {
         const crd = pos.coords;
-        console.log('>>>>>>>ЗАБЫЛ ВЕРНУТЬ', crd);
         this.setState({
           geolocation: { lon: crd.longitude, lat: crd.latitude },
         });
+        console.log('>>>>>>>ЗАБЫЛ ВЕРНУТЬ', crd);
       });
     } else {
       console.log('FUCK OFF');
