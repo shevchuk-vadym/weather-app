@@ -3,7 +3,6 @@ import '../components/App/app.css';
 import './weather.css';
 
 export const MainWeather = (props) => {
-  console.log(typeof props.data.icon);
   let newDate = new Date();
 
   return (
