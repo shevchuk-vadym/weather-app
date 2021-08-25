@@ -1,0 +1,26 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.Location_form {
+  margin: 10px 0;
+}
+
+.weather__location {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.weather__description {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.weather__date {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}

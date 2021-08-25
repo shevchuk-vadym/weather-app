@@ -6,32 +6,39 @@ export class LocationForm extends React.Component {
     this.state = { value: '' };
   }
   handleChange = (event) => {
-    console.log(event.target);
-    console.log(this);
     this.setState({ value: event.target.value });
   };
 
   onSubmit = (e) => {
     e.preventDefault();
-    console.log(e, this);
     this.props.onSubmit(this.state.value);
   };
-
   render() {
+    console.log(this.props.data.icon);
     return (
-      <form onSubmit={this.onSubmit}>
-        <label>
-          Город:
-          {this.props.location}
-          <input
-            type='text'
-            name='location'
-            value={this.state.value}
-            onChange={this.handleChange}
+      <div className='Location_form'>
+        <form onSubmit={this.onSubmit}>
+          <label className='location-form'>
+            <input
+              type='text'
+              name='location'
+              value={this.state.value}
+              onChange={this.handleChange}
+            />
+          </label>
+          <input type='submit' value='ok' />
+        </form>
+        {/* <div>
+          <img
+            src={`http://openweathermap.org/img/wn/${this.props.data.icon}@2x.png`}
+            alt=''
           />
-        </label>
-        <input type='submit' value='Отправить' />
-      </form>
+        </div> */}
+        {/* <div className='location'>
+          <h2>Город:</h2>
+          <h2>{this.props.data.city}</h2>
+        </div> */}
+      </div>
     );
   }
 }

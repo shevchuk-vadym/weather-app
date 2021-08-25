@@ -2,31 +2,46 @@ import React from 'react';
 import './dailyforecast.css';
 
 export const DailyWeather = (props) => {
+  console.log(props);
   const forACast = props.forecast;
-  console.log(forACast);
   const weatherForAWeek = forACast.map((weather) => {
     return (
       <div>
         {/* <div>{weather.date}</div> */}
         <div>
-          <h5>t: {weather.temp}</h5>
+          <div>
+            <img
+              src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}
+              alt=''
+            />
+          </div>
+          <h5>
+            <br /> {weather.temp}&#8451;
+          </h5>
         </div>
         <div>
-          <h5>fells: {weather.feels_like}</h5>
+          <h5>
+            чувствуется как: <br /> {weather.feels_like}&#8451;
+          </h5>
         </div>
         <div>
-          <h5>t. min.: {weather.temp_min}</h5>
+          <h5>
+            минимальная температура: <br /> {weather.temp_min}&#8451;
+          </h5>
         </div>
         <div>
-          <h5>t. max: {weather.temp_max}</h5>
+          <h5>
+            максимальная температура: <br /> {weather.temp_max}&#8451;
+          </h5>
         </div>
         <div>
-          <h5>pressure: {weather.pressure}</h5>
+          <h5>
+            давление: <br /> {weather.pressure}
+          </h5>
         </div>
       </div>
     );
   });
-  console.log(weatherForAWeek);
   return (
     <div className='week_weather'>
       <div className='week_weather_temp'>{weatherForAWeek}</div>
