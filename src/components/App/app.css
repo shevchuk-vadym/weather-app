@@ -1,7 +1,10 @@
 :root {
   --main-bg-color: #c3bebe;
 }
-
+.svg_loader {
+  width: 100px;
+  height: 100px;
+}
 .main {
   margin: 0 auto;
   width: 653px;

@@ -97,7 +97,12 @@ export class App extends React.Component {
       this.state;
 
     if (isLoading) {
-      return <h2>LOADING...</h2>;
+      return (
+        <div>
+          {/* <h2>LOADING...</h2> */}
+          <img className='svg_loader' src='./grid.svg' alt='' />
+        </div>
+      );
     }
 
     if (error) {
