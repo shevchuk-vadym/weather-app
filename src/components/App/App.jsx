@@ -5,6 +5,8 @@ import { LocationForm } from '../locationForm';
 import { Weather } from '../../Weather';
 import { reduceForecast } from '../../Utils';
 import { DailyWeather } from '../DailyForecast';
+import { LoaderSVG } from './grid';
+
 const { REACT_APP_APP_ID } = process.env;
 export class App extends React.Component {
   state = {
@@ -100,7 +102,7 @@ export class App extends React.Component {
       return (
         <div>
           {/* <h2>LOADING...</h2> */}
-          <img className='svg_loader' src='./grid.svg' alt='' />
+          <LoaderSVG />
         </div>
       );
     }
